@@ -1,0 +1,782 @@
+
+1:Write a query to generate new names of the employees by combining the first 3 characters
+of the First_Name and last 3 characters of the job
+ select first_name,job_id, concat(left(first_name,3),right(job_id,3)) from employees;
++-------------+------------+--------------------------------------------+
+| first_name  | job_id     | concat(left(first_name,3),right(job_id,3)) |
++-------------+------------+--------------------------------------------+
+| Steven      | AD_PRES    | SteRES                                     |
+| Neena       | AD_VP      | Nee_VP                                     |
+| Lex         | AD_VP      | Lex_VP                                     |
+| Alexander   | IT_PROG    | AleROG                                     |
+| Bruce       | IT_PROG    | BruROG                                     |
+| David       | IT_PROG    | DavROG                                     |
+| Valli       | IT_PROG    | ValROG                                     |
+| Diana       | IT_PROG    | DiaROG                                     |
+| Nancy       | FI_MGR     | NanMGR                                     |
+| Daniel      | FI_ACCOUNT | DanUNT                                     |
+| John        | FI_ACCOUNT | JohUNT                                     |
+| Ismael      | FI_ACCOUNT | IsmUNT                                     |
+| Jose Manuel | FI_ACCOUNT | JosUNT                                     |
+| Luis        | FI_ACCOUNT | LuiUNT                                     |
+| Den         | PU_MAN     | DenMAN                                     |
+| Alexander   | PU_CLERK   | AleERK                                     |
+| Shelli      | PU_CLERK   | SheERK                                     |
+| Sigal       | PU_CLERK   | SigERK                                     |
+| Guy         | PU_CLERK   | GuyERK                                     |
+| Karen       | PU_CLERK   | KarERK                                     |
+| Matthew     | ST_MAN     | MatMAN                                     |
+| Adam        | ST_MAN     | AdaMAN                                     |
+| Payam       | ST_MAN     | PayMAN                                     |
+| Shanta      | ST_MAN     | ShaMAN                                     |
+| Kevin       | ST_MAN     | KevMAN                                     |
+| Julia       | ST_CLERK   | JulERK                                     |
+| Irene       | ST_CLERK   | IreERK                                     |
+| James       | ST_CLERK   | JamERK                                     |
+| Steven      | ST_CLERK   | SteERK                                     |
+| Laura       | ST_CLERK   | LauERK                                     |
+| Mozhe       | ST_CLERK   | MozERK                                     |
+| James       | ST_CLERK   | JamERK                                     |
+| TJ          | ST_CLERK   | TJERK                                      |
+| Jason       | ST_CLERK   | JasERK                                     |
+| Michael     | ST_CLERK   | MicERK                                     |
+| Ki          | ST_CLERK   | KiERK                                      |
+| Hazel       | ST_CLERK   | HazERK                                     |
+| Renske      | ST_CLERK   | RenERK                                     |
+| Stephen     | ST_CLERK   | SteERK                                     |
+| John        | ST_CLERK   | JohERK                                     |
+| Joshua      | ST_CLERK   | JosERK                                     |
+| Trenna      | ST_CLERK   | TreERK                                     |
+| Curtis      | ST_CLERK   | CurERK                                     |
+| Randall     | ST_CLERK   | RanERK                                     |
+| Peter       | ST_CLERK   | PetERK                                     |
+| John        | SA_MAN     | JohMAN                                     |
+| Karen       | SA_MAN     | KarMAN                                     |
+| Alberto     | SA_MAN     | AlbMAN                                     |
+| Gerald      | SA_MAN     | GerMAN                                     |
+| Eleni       | SA_MAN     | EleMAN                                     |
+| Peter       | SA_REP     | PetREP                                     |
+| David       | SA_REP     | DavREP                                     |
+| Peter       | SA_REP     | PetREP                                     |
+| Christopher | SA_REP     | ChrREP                                     |
+| Nanette     | SA_REP     | NanREP                                     |
+| Oliver      | SA_REP     | OliREP                                     |
+| Janette     | SA_REP     | JanREP                                     |
+| Patrick     | SA_REP     | PatREP                                     |
+| Allan       | SA_REP     | AllREP                                     |
+| Lindsey     | SA_REP     | LinREP                                     |
+| Louise      | SA_REP     | LouREP                                     |
+| Sarath      | SA_REP     | SarREP                                     |
+| Clara       | SA_REP     | ClaREP                                     |
+| Danielle    | SA_REP     | DanREP                                     |
+| Mattea      | SA_REP     | MatREP                                     |
+| David       | SA_REP     | DavREP                                     |
+| Sundar      | SA_REP     | SunREP                                     |
+| Amit        | SA_REP     | AmiREP                                     |
+| Lisa        | SA_REP     | LisREP                                     |
+| Harrison    | SA_REP     | HarREP                                     |
+| Tayler      | SA_REP     | TayREP                                     |
+| William     | SA_REP     | WilREP                                     |
+| Elizabeth   | SA_REP     | EliREP                                     |
+| Sundita     | SA_REP     | SunREP                                     |
+| Ellen       | SA_REP     | EllREP                                     |
+| Alyssa      | SA_REP     | AlyREP                                     |
+| Jonathon    | SA_REP     | JonREP                                     |
+| Jack        | SA_REP     | JacREP                                     |
+| Kimberely   | SA_REP     | KimREP                                     |
+| Charles     | SA_REP     | ChaREP                                     |
+| Winston     | SH_CLERK   | WinERK                                     |
+| Jean        | SH_CLERK   | JeaERK                                     |
+| Martha      | SH_CLERK   | MarERK                                     |
+| Girard      | SH_CLERK   | GirERK                                     |
+| Nandita     | SH_CLERK   | NanERK                                     |
+| Alexis      | SH_CLERK   | AleERK                                     |
+| Julia       | SH_CLERK   | JulERK                                     |
+| Anthony     | SH_CLERK   | AntERK                                     |
+| Kelly       | SH_CLERK   | KelERK                                     |
+| Jennifer    | SH_CLERK   | JenERK                                     |
+| Timothy     | SH_CLERK   | TimERK                                     |
+| Randall     | SH_CLERK   | RanERK                                     |
+| Sarah       | SH_CLERK   | SarERK                                     |
+| Britney     | SH_CLERK   | BriERK                                     |
+| Samuel      | SH_CLERK   | SamERK                                     |
+| Vance       | SH_CLERK   | VanERK                                     |
+| Alana       | SH_CLERK   | AlaERK                                     |
+| Kevin       | SH_CLERK   | KevERK                                     |
+| Donald      | SH_CLERK   | DonERK                                     |
+| Douglas     | SH_CLERK   | DouERK                                     |
+| Jennifer    | AD_ASST    | JenSST                                     |
+| Michael     | MK_MAN     | MicMAN                                     |
+| Pat         | MK_REP     | PatREP                                     |
+| Susan       | HR_REP     | SusREP                                     |
+| Hermann     | PR_REP     | HerREP                                     |
+| Shelley     | AC_MGR     | SheMGR                                     |
+| William     | AC_ACCOUNT | WilUNT                                     |
++-------------+------------+--------------------------------------------+
+107 rows in set (0.00 sec)
+2:Generate new jobs of the employees by changing letter E with A in the existing jobs;
+
+
+
+
+ select replace(job_id,"E","A") as new_job_id,job_id from employees;
++------------+------------+
+| new_job_id | job_id     |
++------------+------------+
+| AC_ACCOUNT | AC_ACCOUNT |
+| AC_MGR     | AC_MGR     |
+| AD_ASST    | AD_ASST    |
+| AD_PRAS    | AD_PRES    |
+| AD_VP      | AD_VP      |
+| AD_VP      | AD_VP      |
+| FI_ACCOUNT | FI_ACCOUNT |
+| FI_ACCOUNT | FI_ACCOUNT |
+| FI_ACCOUNT | FI_ACCOUNT |
+| FI_ACCOUNT | FI_ACCOUNT |
+| FI_ACCOUNT | FI_ACCOUNT |
+| FI_MGR     | FI_MGR     |
+| HR_RAP     | HR_REP     |
+| IT_PROG    | IT_PROG    |
+| IT_PROG    | IT_PROG    |
+| IT_PROG    | IT_PROG    |
+| IT_PROG    | IT_PROG    |
+| IT_PROG    | IT_PROG    |
+| MK_MAN     | MK_MAN     |
+| MK_RAP     | MK_REP     |
+| PR_RAP     | PR_REP     |
+| PU_CLARK   | PU_CLERK   |
+| PU_CLARK   | PU_CLERK   |
+| PU_CLARK   | PU_CLERK   |
+| PU_CLARK   | PU_CLERK   |
+| PU_CLARK   | PU_CLERK   |
+| PU_MAN     | PU_MAN     |
+| SA_MAN     | SA_MAN     |
+| SA_MAN     | SA_MAN     |
+| SA_MAN     | SA_MAN     |
+| SA_MAN     | SA_MAN     |
+| SA_MAN     | SA_MAN     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SA_RAP     | SA_REP     |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| SH_CLARK   | SH_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_CLARK   | ST_CLERK   |
+| ST_MAN     | ST_MAN     |
+| ST_MAN     | ST_MAN     |
+| ST_MAN     | ST_MAN     |
+| ST_MAN     | ST_MAN     |
+| ST_MAN     | ST_MAN     |
++------------+------------+
+107 rows in set (0.00 sec)
+
+3:Write a query to Display Names, hire date years in the department.
+
+
+select concat(first_name,"  ",last_name) as NAME,YEAR(hIRE_DATE) FROM EMPLOYEES;
++--------------------+-----------------+
+| NAME               | YEAR(hIRE_DATE) |
++--------------------+-----------------+
+| Steven  King       |            1987 |
+| Neena  Kochhar     |            1989 |
+| Lex  De Haan       |            1993 |
+| Alexander  Hunold  |            1990 |
+| Bruce  Ernst       |            1991 |
+| David  Austin      |            1997 |
+| Valli  Pataballa   |            1998 |
+| Diana  Lorentz     |            1999 |
+| Nancy  Greenberg   |            1994 |
+| Daniel  Faviet     |            1994 |
+| John  Chen         |            1997 |
+| Ismael  Sciarra    |            1997 |
+| Jose Manuel  Urman |            1998 |
+| Luis  Popp         |            1999 |
+| Den  Raphaely      |            1994 |
+| Alexander  Khoo    |            1995 |
+| Shelli  Baida      |            1997 |
+| Sigal  Tobias      |            1997 |
+| Guy  Himuro        |            1998 |
+| Karen  Colmenares  |            1999 |
+| Matthew  Weiss     |            1996 |
+| Adam  Fripp        |            1997 |
+| Payam  Kaufling    |            1995 |
+| Shanta  Vollman    |            1997 |
+| Kevin  Mourgos     |            1999 |
+| Julia  Nayer       |            1997 |
+| Irene  Mikkilineni |            1998 |
+| James  Landry      |            1999 |
+| Steven  Markle     |            2000 |
+| Laura  Bissot      |            1997 |
+| Mozhe  Atkinson    |            1997 |
+| James  Marlow      |            1997 |
+| TJ  Olson          |            1999 |
+| Jason  Mallin      |            1996 |
+| Michael  Rogers    |            1998 |
+| Ki  Gee            |            1999 |
+| Hazel  Philtanker  |            2000 |
+| Renske  Ladwig     |            1995 |
+| Stephen  Stiles    |            1997 |
+| John  Seo          |            1998 |
+| Joshua  Patel      |            1998 |
+| Trenna  Rajs       |            1995 |
+| Curtis  Davies     |            1997 |
+| Randall  Matos     |            1998 |
+| Peter  Vargas      |            1998 |
+| John  Russell      |            1996 |
+| Karen  Partners    |            1997 |
+| Alberto  Errazuriz |            1997 |
+| Gerald  Cambrault  |            1999 |
+| Eleni  Zlotkey     |            2000 |
+| Peter  Tucker      |            1997 |
+| David  Bernstein   |            1997 |
+| Peter  Hall        |            1997 |
+| Christopher  Olsen |            1998 |
+| Nanette  Cambrault |            1998 |
+| Oliver  Tuvault    |            1999 |
+| Janette  King      |            1996 |
+| Patrick  Sully     |            1996 |
+| Allan  McEwen      |            1996 |
+| Lindsey  Smith     |            1997 |
+| Louise  Doran      |            1997 |
+| Sarath  Sewall     |            1998 |
+| Clara  Vishney     |            1997 |
+| Danielle  Greene   |            1999 |
+| Mattea  Marvins    |            2000 |
+| David  Lee         |            2000 |
+| Sundar  Ande       |            2000 |
+| Amit  Banda        |            2000 |
+| Lisa  Ozer         |            1997 |
+| Harrison  Bloom    |            1998 |
+| Tayler  Fox        |            1998 |
+| William  Smith     |            1999 |
+| Elizabeth  Bates   |            1999 |
+| Sundita  Kumar     |            2000 |
+| Ellen  Abel        |            1996 |
+| Alyssa  Hutton     |            1997 |
+| Jonathon  Taylor   |            1998 |
+| Jack  Livingston   |            1998 |
+| Kimberely  Grant   |            1999 |
+| Charles  Johnson   |            2000 |
+| Winston  Taylor    |            1998 |
+| Jean  Fleaur       |            1998 |
+| Martha  Sullivan   |            1999 |
+| Girard  Geoni      |            2000 |
+| Nandita  Sarchand  |            1996 |
+| Alexis  Bull       |            1997 |
+| Julia  Dellinger   |            1998 |
+| Anthony  Cabrio    |            1999 |
+| Kelly  Chung       |            1997 |
+| Jennifer  Dilly    |            1997 |
+| Timothy  Gates     |            1998 |
+| Randall  Perkins   |            1999 |
+| Sarah  Bell        |            1996 |
+| Britney  Everett   |            1997 |
+| Samuel  McCain     |            1998 |
+| Vance  Jones       |            1999 |
+| Alana  Walsh       |            1998 |
+| Kevin  Feeney      |            1998 |
+| Donald  OConnell   |            1999 |
+| Douglas  Grant     |            2000 |
+| Jennifer  Whalen   |            1987 |
+| Michael  Hartstein |            1996 |
+| Pat  Fay           |            1997 |
+| Susan  Mavris      |            1994 |
+| Hermann  Baer      |            1994 |
+| Shelley  Higgins   |            1994 |
+| William  Gietz     |            1994 |
++--------------------+-----------------+
+107 rows in set (0.00 sec)
+
+
+
+4:Write a query to display names, hire date of all the employees who were hired before July
+30, 1987. Keeping this in mind that hire dates should be displayed in the format “MONTH
+DATE, YEAR”. Also date in the where clause should be in the format “MONTH DATE,
+YEAR”.
+ select concat(first_name," ",last_name), date_format(hire_date,"%M %d %Y")from employees where hire_date <"1987-07-30";
++----------------------------------+-----------------------------------+
+| concat(first_name," ",last_name) | date_format(hire_date,"%M %d %Y") |
++----------------------------------+-----------------------------------+
+| Steven King                      | June 17 1987                      |
++----------------------------------+-----------------------------------+
+1 row in set (0.10 sec)
+
+5) Write a query to display the last day of the current month three months before the current 
+month.
+mysql> SELECT LAST_DAY(DATE_SUB(LAST_DAY(CURRENT_DATE), INTERVAL 3 MONTH)) AS last_day_three_months_ago;
++---------------------------+
+| last_day_three_months_ago |
++---------------------------+
+| 2023-11-30                |
++---------------------------+
+1 row in set (0.05 sec)
+6. Write a query to get the a day of the current year.
+SELECT MAKEDATE(EXTRACT(YEAR FROM CURDATE()),1);
++------------------------------------------+
+| MAKEDATE(EXTRACT(YEAR FROM CURDATE()),1) |
++------------------------------------------+
+| 2024-01-01                               |
++------------------------------------------+
+1 row in set (0.04 sec)
+7. Write a query to get the current date in the following format.
+Sample date : 2014-09-04
+Output : September 4, 2014
+SELECT DATE_FORMAT(CURDATE(),'%M %e, %Y')
+    ->    AS 'Current_date';
++------------------+
+| Current_date     |
++------------------+
+| February 3, 2024 |
++------------------+
+1 row in set (0.03 sec)
+8. Write a query to get the current date in Thursday September 2014 format.
+SELECT DATE_FORMAT(NOW(), '%W %M %Y');
++--------------------------------+
+| DATE_FORMAT(NOW(), '%W %M %Y') |
++--------------------------------+
+| Saturday February 2024         |
++--------------------------------+
+1 row in set (0.06 sec)
+9. Write a query to get the first name and hire date from employees table where hire date
+between '1987-06-01' and '1987-07-30'.
+SELECT FIRST_NAME, HIRE_DATE
+    ->     FROM employees
+    ->        WHERE HIRE_DATE
+    ->          BETWEEN '1987-06-01 00:00:00'
+    ->             AND '1987-07-30  23:59:59';
++------------+------------+
+| FIRST_NAME | HIRE_DATE  |
++------------+------------+
+| Steven     | 1987-06-17 |
++------------+------------+
+1 row in set, 107 warnings (0.07 sec)
+
+10. Write a query to display the current date in the 05/09/2014 format.
+SELECT date_format(CURDATE(),'%d/%m/%Y');
++-----------------------------------+
+| date_format(CURDATE(),'%d/%m/%Y') |
++-----------------------------------+
+| 03/02/2024                        |
++-----------------------------------+
+1 row in set (0.00 sec)
+11. Write a query to get the firstname, lastname who joined in the month of June.
+SELECT first_name, last_name
+    ->     FROM employees WHERE MONTH(HIRE_DATE) =  6;
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Steven     | King      |
+| David      | Austin    |
+| Jason      | Mallin    |
+| Martha     | Sullivan  |
+| Julia      | Dellinger |
+| Kelly      | Chung     |
+| Donald     | OConnell  |
+| Susan      | Mavris    |
+| Hermann    | Baer      |
+| Shelley    | Higgins   |
+| William    | Gietz     |
++------------+-----------+
+11 rows in set (0.02 sec)
+12. Write a query to append '@iba-suk.edu.pk' to email field.
+mysql> UPDATE employees SET email = CONCAT(email, '@iba-suk.edu.pk');
+Query OK, 107 rows affected (0.30 sec)
+Rows matched: 107  Changed: 107  Warnings: 0
+
+mysql> select email from employees limit 10;
++-------------------------+
+| email                   |
++-------------------------+
+| SKING@iba-suk.edu.pk    |
+| NKOCHHAR@iba-suk.edu.pk |
+| LDEHAAN@iba-suk.edu.pk  |
+| AHUNOLD@iba-suk.edu.pk  |
+| BERNST@iba-suk.edu.pk   |
+| DAUSTIN@iba-suk.edu.pk  |
+| VPATABAL@iba-suk.edu.pk |
+| DLORENTZ@iba-suk.edu.pk |
+| NGREENBE@iba-suk.edu.pk |
+| DFAVIET@iba-suk.edu.pk  |
++-------------------------+
+10 rows in set (0.00 sec)
+
+13. Write a query to get the employee id, first name and hire month using MID().
+SELECT employee_id, first_name, MID(hire_date, 6, 2) as hire_month FROM employees;
++-------------+-------------+------------+
+| employee_id | first_name  | hire_month |
++-------------+-------------+------------+
+|         100 | Steven      | 06         |
+|         101 | Neena       | 09         |
+|         102 | Lex         | 01         |
+|         103 | Alexander   | 01         |
+|         104 | Bruce       | 05         |
+|         105 | David       | 06         |
+|         106 | Valli       | 02         |
+|         107 | Diana       | 02         |
+|         108 | Nancy       | 08         |
+|         109 | Daniel      | 08         |
+|         110 | John        | 09         |
+|         111 | Ismael      | 09         |
+|         112 | Jose Manuel | 03         |
+|         113 | Luis        | 12         |
+|         114 | Den         | 12         |
+|         115 | Alexander   | 05         |
+|         116 | Shelli      | 12         |
+|         117 | Sigal       | 07         |
+|         118 | Guy         | 11         |
+|         119 | Karen       | 08         |
+|         120 | Matthew     | 07         |
+|         121 | Adam        | 04         |
+|         122 | Payam       | 05         |
+|         123 | Shanta      | 10         |
+|         124 | Kevin       | 11         |
+|         125 | Julia       | 07         |
+|         126 | Irene       | 09         |
+|         127 | James       | 01         |
+|         128 | Steven      | 03         |
+|         129 | Laura       | 08         |
+|         130 | Mozhe       | 10         |
+|         131 | James       | 02         |
+|         132 | TJ          | 04         |
+|         133 | Jason       | 06         |
+|         134 | Michael     | 08         |
+|         135 | Ki          | 12         |
+|         136 | Hazel       | 02         |
+|         137 | Renske      | 07         |
+|         138 | Stephen     | 10         |
+|         139 | John        | 02         |
+|         140 | Joshua      | 04         |
+|         141 | Trenna      | 10         |
+|         142 | Curtis      | 01         |
+|         143 | Randall     | 03         |
+|         144 | Peter       | 07         |
+|         145 | John        | 10         |
+|         146 | Karen       | 01         |
+|         147 | Alberto     | 03         |
+|         148 | Gerald      | 10         |
+|         149 | Eleni       | 01         |
+|         150 | Peter       | 01         |
+|         151 | David       | 03         |
+|         152 | Peter       | 08         |
+|         153 | Christopher | 03         |
+|         154 | Nanette     | 12         |
+|         155 | Oliver      | 11         |
+|         156 | Janette     | 01         |
+|         157 | Patrick     | 03         |
+|         158 | Allan       | 08         |
+|         159 | Lindsey     | 03         |
+|         160 | Louise      | 12         |
+|         161 | Sarath      | 11         |
+|         162 | Clara       | 11         |
+|         163 | Danielle    | 03         |
+|         164 | Mattea      | 01         |
+|         165 | David       | 02         |
+|         166 | Sundar      | 03         |
+|         167 | Amit        | 04         |
+|         168 | Lisa        | 03         |
+|         169 | Harrison    | 03         |
+|         170 | Tayler      | 01         |
+|         171 | William     | 02         |
+|         172 | Elizabeth   | 03         |
+|         173 | Sundita     | 04         |
+|         174 | Ellen       | 05         |
+|         175 | Alyssa      | 03         |
+|         176 | Jonathon    | 03         |
+|         177 | Jack        | 04         |
+|         178 | Kimberely   | 05         |
+|         179 | Charles     | 01         |
+|         180 | Winston     | 01         |
+|         181 | Jean        | 02         |
+|         182 | Martha      | 06         |
+|         183 | Girard      | 02         |
+|         184 | Nandita     | 01         |
+|         185 | Alexis      | 02         |
+|         186 | Julia       | 06         |
+|         187 | Anthony     | 02         |
+|         188 | Kelly       | 06         |
+|         189 | Jennifer    | 08         |
+|         190 | Timothy     | 07         |
+|         191 | Randall     | 12         |
+|         192 | Sarah       | 02         |
+|         193 | Britney     | 03         |
+|         194 | Samuel      | 07         |
+|         195 | Vance       | 03         |
+|         196 | Alana       | 04         |
+|         197 | Kevin       | 05         |
+|         198 | Donald      | 06         |
+|         199 | Douglas     | 01         |
+|         200 | Jennifer    | 09         |
+|         201 | Michael     | 02         |
+|         202 | Pat         | 08         |
+|         203 | Susan       | 06         |
+|         204 | Hermann     | 06         |
+|         205 | Shelley     | 06         |
+|         206 | William     | 06         |
++-------------+-------------+------------+
+107 rows in set (0.01 sec)
+
+14. Write a query to extract the last 4 character of phone numbers.
+SELECT RIGHT(phone_number, 4) FROM employees;
++------------------------+
+| RIGHT(phone_number, 4) |
++------------------------+
+| 4567                   |
+| 4568                   |
+| 4569                   |
+| 4567                   |
+| 4568                   |
+| 4569                   |
+| 4560                   |
+| 5567                   |
+| 4569                   |
+| 4169                   |
+| 4269                   |
+| 4369                   |
+| 4469                   |
+| 4567                   |
+| 4561                   |
+| 4562                   |
+| 4563                   |
+| 4564                   |
+| 4565                   |
+| 4566                   |
+| 1234                   |
+| 2234                   |
+| 3234                   |
+| 4234                   |
+| 5234                   |
+| 1214                   |
+| 1224                   |
+| 1334                   |
+| 1434                   |
+| 5234                   |
+| 6234                   |
+| 7234                   |
+| 8234                   |
+| 1934                   |
+| 1834                   |
+| 1734                   |
+| 1634                   |
+| 1234                   |
+| 2034                   |
+| 2019                   |
+| 1834                   |
+| 8009                   |
+| 2994                   |
+| 2874                   |
+| 2004                   |
+| 9268                   |
+| 7268                   |
+| 9278                   |
+| 9268                   |
+| 9018                   |
+| 9268                   |
+| 5268                   |
+| 8968                   |
+| 8718                   |
+| 7668                   |
+| 6508                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9268                   |
+| 9267                   |
+| 9266                   |
+| 9265                   |
+| 9264                   |
+| 9263                   |
+| 9262                   |
+| 9876                   |
+| 9877                   |
+| 9878                   |
+| 9879                   |
+| 1876                   |
+| 2876                   |
+| 3876                   |
+| 4876                   |
+| 1876                   |
+| 2876                   |
+| 3876                   |
+| 4876                   |
+| 1876                   |
+| 2876                   |
+| 3876                   |
+| 4876                   |
+| 9811                   |
+| 9822                   |
+| 9833                   |
+| 9844                   |
+| 4444                   |
+| 5555                   |
+| 6666                   |
+| 7777                   |
+| 8888                   |
+| 8080                   |
+| 8181                   |
++------------------------+
+107 rows in set (0.04 sec)
+15. Write a query to get the last word of the street address(from locations able)
+SELECT location_id, street_address,
+    -> SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(street_address,',',' '),')',' '),'(',' '),' ',-1)
+    -> AS 'Last--word-of-street_address'
+    -> FROM locations;
++-------------+------------------------------------------+------------------------------+
+| location_id | street_address                           | Last--word-of-street_address |
++-------------+------------------------------------------+------------------------------+
+|        1000 | 1297 Via Cola di Rie                     | Rie                          |
+|        1100 | 93091 Calle della Testa                  | Testa                        |
+|        1200 | 2017 Shinjuku-ku                         | Shinjuku-ku                  |
+|        1300 | 9450 Kamiya-cho                          | Kamiya-cho                   |
+|        1400 | 2014 Jabberwocky Rd                      | Rd                           |
+|        1500 | 2011 Interiors Blvd                      | Blvd                         |
+|        1600 | 2007 Zagora St                           | St                           |
+|        1700 | 2004 Charade Rd                          | Rd                           |
+|        1800 | 147 Spadina Ave                          | Ave                          |
+|        1900 | 6092 Boxwood St                          | St                           |
+|        2000 | 40-5-12 Laogianggen                      | Laogianggen                  |
+|        2100 | 1298 Vileparle (E)                       |                              |
+|        2200 | 12-98 Victoria Street                    | Street                       |
+|        2300 | 198 Clementi North                       | North                        |
+|        2400 | 8204 Arthur St                           | St                           |
+|        2500 | Magdalen Centre, The Oxford Science Park | Park                         |
+|        2600 | 9702 Chester Road                        | Road                         |
+|        2700 | Schwanthalerstr. 7031                    | 7031                         |
+|        2800 | Rua Frei Caneca 1360                     |                              |
+|        2900 | 20 Rue des Corps-Saints                  | Corps-Saints                 |
+|        3000 | Murtenstrasse 921                        | 921                          |
+|        3100 | Pieter Breughelstraat 837                | 837                          |
+|        3200 | Mariano Escobedo 9991                    | 9991                         |
++-------------+------------------------------------------+------------------------------+
+23 rows in set (0.25 sec)
+16. Write a query to get the locations that have minimum street length.(locations tbl).
+SELECT * FROM locations
+    -> WHERE LENGTH(street_address) <= (SELECT  MIN(LENGTH(street_address))
+    -> FROM locations);
++-------------+----------------+-------------+-----------------+----------------+------------+
+| location_id | street_address | postal_code | city            | state_province | country_id |
++-------------+----------------+-------------+-----------------+----------------+------------+
+|        1600 | 2007 Zagora St | 50090       | South Brunswick | New Jersey     | US         |
+|        2400 | 8204 Arthur St | NULL        | London          | NULL           | UK         |
++-------------+----------------+-------------+-----------------+----------------+------------+
+2 rows in set (0.13 sec)
+
+17. Write a query to display the first word from those job titles which contains more than
+one words.
+
+SELECT job_title, SUBSTR(job_title,1, INSTR(job_title, ' ')-1)
+    -> FROM jobs;
++---------------------------------+----------------------------------------------+
+| job_title                       | SUBSTR(job_title,1, INSTR(job_title, ' ')-1) |
++---------------------------------+----------------------------------------------+
+| Public Accountant               | Public                                       |
+| Accounting Manager              | Accounting                                   |
+| Administration Assistant        | Administration                               |
+| President                       |                                              |
+| Administration Vice President   | Administration                               |
+| Accountant                      |                                              |
+| Finance Manager                 | Finance                                      |
+| Human Resources Representative  | Human                                        |
+| Programmer                      |                                              |
+| Marketing Manager               | Marketing                                    |
+| Marketing Representative        | Marketing                                    |
+| Public Relations Representative | Public                                       |
+| Purchasing Clerk                | Purchasing                                   |
+| Purchasing Manager              | Purchasing                                   |
+| Sales Manager                   | Sales                                        |
+| Sales Representative            | Sales                                        |
+| Shipping Clerk                  | Shipping                                     |
+| Stock Clerk                     | Stock                                        |
+| Stock Manager                   | Stock                                        |
++---------------------------------+----------------------------------------------+
+19 rows in set (0.16 sec)
+18. Write a query to display the length of first name for employees where last name contain
+character 'c' after 2nd position.
+SELECT first_name, last_name FROM employees WHERE INSTR(last_name,'C') > 2;
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Neena      | Kochhar   |
+| Peter      | Tucker    |
+| Nandita    | Sarchand  |
++------------+-----------+
+3 rows in set (0.00 sec)
+
+
+
